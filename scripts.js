@@ -486,7 +486,7 @@ function generatePassiveAbility(roleName) {
 let currentPart = 0;
 let currentPlayer = 1;
 const totalPlayers = 4;
-const apiKey = 'AIzaSyAm_elTp1qDKPHTZf_KmTw9eucaDGgu_xw'; // Замените YOUR_API_KEY на ваш ключ API
+const apiKey = 'YOUR_API_KEY'; // Замените YOUR_API_KEY на ваш ключ API
 
 // Функция для обновления текста истории и генерации изображения
 async function updateStory() {
@@ -599,39 +599,16 @@ async function handlePlayerAction() {
     document.getElementById('player-prompt').innerText = `Игрок ${currentPlayer}, ваш ход. Опишите ваше действие:`;
 }
 
-// Подключение к серверу с помощью Socket.IO
-const socket = io(); 
-
 // Функция для запуска игры
 function startGame() {
-  // Отправка запроса на сервер с помощью Socket.IO
-  socket.emit('joinGame', (roomId) => {
-    console.log('Присоединен к комнате:', roomId);
+  // Скрываем кнопку "Начать игру"
+  document.getElementById('start-section').style.display = 'none';
 
-    // Скрываем кнопку "Начать игру"
-    document.getElementById('start-section').style.display = 'none';
+  // Отображаем секцию игры
+  document.getElementById('game-section').style.display = 'block';
 
-    // Отображаем секцию лобби
-    document.getElementById('lobby-section').style.display = 'block';
-    document.getElementById('lobby-message').innerText = `Ожидание других игроков в комнате ${roomId}...`;
-
-    // Добавляем обработчик события 'startGameResponse' (от сервера)
-    socket.on('startGameResponse', (data) => {
-      console.log('Получена информация о начале игры', data);
-
-      // Скрываем лобби
-      document.getElementById('lobby-section').style.display = 'none';
-
-      // Отображаем секцию игры
-      document.getElementById('game-section').style.display = 'block';
-
-      // Обновляем информацию о персонажах (заполняем данными)
-      // ... (здесь вы можете добавить логику для отображения информации о персонажах)
-
-      // Начинаем игру, отображая первую часть истории
-      updateStory(); 
-    });
-  });
+  // Начинаем игру, отображая первую часть истории
+  updateStory(); 
 }
 
 // Добавление обработчика событий для кнопки "Начать игру"
