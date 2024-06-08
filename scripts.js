@@ -486,7 +486,7 @@ function generatePassiveAbility(roleName) {
 let currentPart = 0;
 let currentPlayer = 1;
 const totalPlayers = 4;
-const apiKey = 'AIzaSyAm_elTp1qDKPHTZf_KmTw9eucaDGgu_xw'; // Замените YOUR_API_KEY на ваш ключ API
+const apiKey = ''; // Замените YOUR_API_KEY на ваш ключ API
 
 // Функция для обновления текста истории и генерации изображения
 async function updateStory() {
