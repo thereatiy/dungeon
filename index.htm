@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Подземелье</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Подземелье</h1>
+    </header>
+    <main id="main-container">
+        <section id="start-section">
+            <h2>Начать игру</h2>
+            <button id="start-game-button">Начать</button>
+        </section>
+
+        <section id="lobby-section" style="display: none;">
+            <h2>Лобби</h2>
+            <p id="lobby-message">Ожидание игроков...</p>
+            <button id="start-game-button-lobby" style="display: none;">Играть</button>
+        </section>
+
+        <section id="game-section" style="display: none;">
+            <h2>История</h2>
+            <p id="story-text">Добро пожаловать в Подземелье! </p>
+            <img id="story-image" src="" alt="Изображение истории">
+            <button id="next-button" style="display: none;">Далее</button>
+            <section id="action-section" style="display: none;">
+                <h2>Действие игрока</h2>
+                <p id="player-prompt"></p>
+                <input type="text" id="player-action" placeholder="Введите ваше действие...">
+                <button id="action-button">Выполнить действие</button>
+                <p id="action-result"></p>
+            </section>
+        </section>
+    </main>
+    <footer>
+        <p>© 2024 Подземелье</p>
+    </footer>
+
+    <script src="scripts.js"></script> 
+</body>
+</html>
